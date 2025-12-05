@@ -14,7 +14,7 @@ export const caseStudies = [
     title: "Lagos de San Francisco",
     subtitle: "Valor de la tierra de $1,500/m² a $4,800/m² en 1.5 años.",
     description: "En medio del periodo de inseguridad en Santiago, N.L., asumimos la planeación y dirección de un proyecto de lotes residenciales. Diseñamos un concepto innovador con un parque recreativo único, convirtiendo la colonia en la primera y única con toboganes de agua. Gracias a esta propuesta de valor, el precio de la tierra pasó de 1,500 $/m² a 4,800 $/m² en solo año y medio, logrando la venta del 80% del proyecto.",
-    imagePath: "/img/portfolio/OIP.webp",
+    imagePath: "/img/portfolio/lagos3.jpg",
   },
    {
     id: 3,

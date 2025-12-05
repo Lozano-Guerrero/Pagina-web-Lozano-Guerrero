@@ -12,13 +12,13 @@ import { faMapMarkerAlt, faTasks } from '@fortawesome/free-solid-svg-icons';
 // DEFINICIÓN DE CONSTANTES DE RUTAS DE IMAGEN
 // =========================================================================
 const UPTOWN_CUMBRES_IMG = '/img/portfolio/EB6.webp';
-const LAGOS_SF_IMG = '/img/portfolio/lagos2.jpg';
+const LAGOS_SF_IMG = '/img/portfolio/lagos4.jpg';
 const ZOLDANA_IMG = '/img/portfolio/Zoldana.jpeg';
 const GRANADOS_IMG = '/img/portfolio/granados.webp';
 const MICROPOLIS_IMG = '/img/portfolio/Micropolis.jpg';
 const HIGHPARK_IMG = '/img/portfolio/higtpark.webp';
 const CONNEXITY_IMG = '/img/portfolio/Connexity.jpg';
-const PLAZA_FUNDADORES_IMG = '/img/portfolio/plaza-fundadores-2.webp';
+const PLAZA_FUNDADORES_IMG = '/img/portfolio/fundadores.jpg';
 
 // Mapa para asociar el título del proyecto con su imagen
 const projectImages = {
