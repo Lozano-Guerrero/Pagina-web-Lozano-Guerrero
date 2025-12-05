@@ -1,0 +1,184 @@
+/* src/components/sections/NewCaseStudies.css */
+
+/* Variables (asumimos que las variables generales están definidas en un archivo base) */
+:root {
+    
+    --text-color: #333333;
+    --text-light: #6c757d;
+    --bg-light: #e3e3e3;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ======================================================
+   1. ESTRUCTURA DE LA SECCIÓN (Header y Contenedor)
+   ====================================================== */
+
+.newcases__section-container {
+    padding: 80px 0;
+    background-color:rgb(7, 6, 46);
+}
+
+.newcases__header {
+    text-align: center;
+    max-width: 800px;
+    color: wheat;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+}
+
+.newcases__title {
+     color: wheat;
+    font-size: 2.2rem;
+   
+    margin-bottom: 10px;
+}
+
+.newcases__subtitle {
+    font-size: 1.1rem;
+   color: rgb(243, 238, 228);
+   
+}
+
+/* ======================================================
+   2. SCROLL HORIZONTAL (Ajuste al 90% del ancho)
+   ====================================================== */
+
+.newcases__cards-scroll-wrapper {
+    /* Nueva estructura para limitar el ancho del contenedor de scroll */
+    max-width: 90%; 
+    margin: 0 auto; /* Centra el contenedor de scroll */
+    
+    overflow-x: auto; 
+    overflow-y: hidden;
+    padding-bottom: 20px; /* Padding inferior para el área de desplazamiento */
+    /* Padding lateral 0 porque ya está centrado y limitado por max-width: 90% */
+    padding-left: 0;
+    padding-right: 0;
+    
+    -webkit-overflow-scrolling: touch; 
+    /* Opcional: Estilo de la barra de desplazamiento (para navegadores Webkit) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-color) var(--bg-light); 
+}
+
+/* Fila de tarjetas: Fuerza la visualización en una sola línea */
+.newcases__cards-row {
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 25px; /* Reducción de espacio entre tarjetas */
+    width: max-content; 
+    margin: 0;
+}
+
+/* ======================================================
+   3. ESTILO DE LA TARJETA (Reducción de tamaño)
+   ====================================================== */
+
+.newcases__card {
+    /* TAMAÑO REDUCIDO */
+    min-width: 300px; 
+    max-width: 300px; 
+    
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    overflow: hidden; 
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Animación inicial (oculto) */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.newcases__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.newcases__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Imagen de la Tarjeta --- */
+.newcases__card-image-wrapper {
+    height: 160px; /* Ligeramente más pequeña la imagen */
+    overflow: hidden;
+}
+
+.newcases__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* --- Contenido de la Tarjeta --- */
+.newcases__card-content {
+    padding: 15px; /* Reducción de padding interno */
+}
+
+.newcases__card-icon {
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.newcases__card-title {
+    font-size: 1.2rem; /* Ligeramente más pequeño */
+    margin: 5px 0 6px 0;
+}
+
+.newcases__card-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.newcases__card-description {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.newcases__card-link {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ======================================================
+   4. RESPONSIVE Y ADAPTACIÓN A TODOS LOS DISPOSITIVOS
+   ====================================================== */
+
+@media (max-width: 768px) {
+    .newcases__section-container {
+        padding: 50px 0;
+    }
+    
+    .newcases__cards-scroll-wrapper {
+        /* En tablet, usamos el 95% para maximizar el espacio de scroll */
+        max-width: 95%; 
+        /* En dispositivos más pequeños, volvemos a poner un poco de padding para que los dedos puedan empezar a hacer scroll desde el borde */
+        padding: 0 10px 20px 10px; 
+    }
+}
+
+@media (max-width: 600px) {
+    .newcases__header {
+        padding: 0 15px;
+    }
+
+    .newcases__title {
+        font-size: 2rem;
+    }
+    
+    .newcases__cards-scroll-wrapper {
+        max-width: 100%; /* Ocupa todo el ancho en móviles pequeños */
+        padding: 0 10px 20px 10px; 
+    }
+
+    .newcases__card {
+        /* TAMAÑO MÓVIL PEQUEÑO */
+        min-width: 260px; 
+        max-width: 260px;
+    }
+}

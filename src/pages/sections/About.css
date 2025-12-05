@@ -1,0 +1,74 @@
+/* src/pages/sections/About.css */
+
+.about__container {
+  display: grid;
+  /* Por defecto, 1 columna (para móvil) */
+  grid-template-columns: 1fr; 
+  gap: 40px;
+  padding: 80px 20px;
+  background-color: white; 
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center; /* Centrado vertical */
+}
+
+/* Diseño para Desktop (a partir de 900px) */
+@media (min-width: 900px) {
+  .about__container {
+    /* Diseño de 2 columnas, 50/50 */
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px;
+  }
+}
+
+/* --- Estilos del Contenido de Texto --- */
+.about__content {
+  text-align: left;
+}
+
+.about__title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.about__paragraph {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.about__cta-link {
+  display: inline-block;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: color 0.3s;
+}
+
+.about__cta-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* --- Estilos de la Imagen --- */
+/* The image wrapper ensures the image is the primary visual element */
+
+.about__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Bordes redondeados para un look moderno */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* En móvil, la imagen va primero para captar la atención */
+@media (max-width: 900px) {
+    .about__image-wrapper {
+        order: -1; /* Mueve la imagen arriba del texto en móvil */
+    }
+}

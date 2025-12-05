@@ -1,0 +1,152 @@
+/* src/pages/sections/Methodology.css */
+
+.methodology__container {
+    padding: 80px 20px;
+    background-color: white; /* Alternamos el color de fondo para contraste */
+    text-align: center;
+}
+
+.methodology__header {
+    margin-bottom: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.methodology__header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.methodology__header p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* --- GRID de Pasos --- */
+.methodology__steps-grid {
+    display: grid;
+    /* Móvil: 1 columna */
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tablet (2 columnas) */
+@media (min-width: 650px) {
+    .methodology__steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop (3 columnas) */
+@media (min-width: 1024px) {
+    .methodology__steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ======================================================
+   NUEVOS ESTILOS PARA ANIMACIÓN (Wrapper)
+   ====================================================== */
+
+/* 🎯 Wrapper que envuelve la tarjeta (Para la animación escalonada) */
+.methodology__step-card-wrapper {
+    /* Estado Inicial: Invisible y desplazado a la izquierda */
+    opacity: 0; 
+    transform: translateX(-100px); 
+    /* Necesario para que el grid funcione correctamente con los wrappers */
+    height: 100%;
+    width: 100%;
+}
+
+/* 🎯 Estado Visible: Aplica la animación con rebote */
+.methodology__step-card-wrapper.is-visible {
+    opacity: 1;
+    /* Duración de 1s para un movimiento lento y elegante con el rebote */
+    animation: slideInBounce 1s ease-out forwards; 
+}
+
+
+/* 🎯 KEYFRAMES: Deslizamiento desde la izquierda con efecto de rebote */
+@keyframes slideInBounce {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(15px); /* 1. Sobredeslizamiento a la derecha */
+    }
+    80% {
+        transform: translateX(-5px); /* 2. Rebote a la izquierda */
+    }
+    100% {
+        transform: translateX(0); /* 3. Posición final de descanso */
+    }
+}
+
+/* ======================================================
+   ESTILOS ORIGINALES DE LA TARJETA (Se mantienen intactos)
+   ====================================================== */
+
+.methodology__step-card {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    /* ELIMINADA la transición 'transform 0.3s' de aquí, ahora la maneja la animación */
+    transition: box-shadow 0.3s;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 50px; /* Espacio para el número de paso */
+    /* Aseguramos que la tarjeta interna no se vea afectada por la animación del wrapper */
+    transform: none;
+}
+
+/* Estilo de hover aplicado al .methodology__step-card (la tarjeta interna) */
+.methodology__step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.methodology__step-number {
+    position: absolute;
+    top: -15px; /* Se sale un poco del borde */
+    left: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.methodology__step-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.methodology__step-title {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.methodology__step-description {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}

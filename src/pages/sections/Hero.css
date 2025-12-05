@@ -1,0 +1,210 @@
+/* Variables de Diseño (Asegura que estas variables estén definidas en tu archivo principal o aquí) */
+:root {
+    --color-primary: #E27D60; /* Terracota Pink (Para botones y acentos) */
+    --color-secondary: #2C3E50; /* Azul Oscuro o color de contraste */
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --shadow-heavy: rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------------------- */
+/* REGLA FUNDAMENTAL DE UX/UI */
+/* ------------------------------------- */
+/* El box-sizing: border-box asegura que el padding no cause desbordamiento horizontal */
+*, *::before, *::after {
+    box-sizing: border-box; 
+}
+
+
+/* ------------------------------------- */
+/* 1. Contenedor Principal (Héroe) */
+/* ------------------------------------- */
+
+.hero__container {
+    height: 85vh; 
+    width: 100%;
+    position: relative;
+    overflow: hidden; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background-color: var(--color-text-dark);
+}
+
+/* ------------------------------------- */
+/* 2. Imagen de Fondo (Fondo total) */
+/* ------------------------------------- */
+
+.hero__background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+/* ------------------------------------- */
+/* 3. Capa de Superposición (Overlay) */
+/* ------------------------------------- */
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    /* Gradiente sutil para oscurecer la imagen y mejorar la legibilidad del texto */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0; /* Controlamos el padding en el contenido interno */
+}
+
+/* ------------------------------------- */
+/* 4. Contenido y Tipografía (Ajustado) */
+/* ------------------------------------- */
+
+.hero__content {
+    max-width: 900px;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out forwards;
+    animation-delay: 0.2s;
+    /* CORRECCIÓN CLAVE: Asegura el 100% de ancho con un padding seguro */
+    width: 100%; 
+    padding: 0 40px; 
+}
+
+.hero__title {
+    font-family: 'Inter', sans-serif;
+    /* Título responsive que se ajusta bien en diferentes tamaños */
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    font-weight: 900;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-shadow: 0 4px 10px var(--shadow-heavy);
+}
+
+.hero__subtitle {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--color-text-light);
+    margin-bottom: 3rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 4px var(--shadow-heavy);
+}
+
+/* ------------------------------------- */
+/* 5. Botones CTA */
+/* ------------------------------------- */
+
+.hero__cta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+.hero__cta-button {
+    padding: 15px 30px;
+    border-radius: 9999px; 
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px var(--shadow-heavy);
+    font-size: 1rem;
+}
+
+/* Botón Principal: Solicita tu Consultoría Hoy */
+.primary-cta {
+    background: rgb(6, 6, 71); 
+    color: var(--color-text-light);
+    border: 2px solid white;
+}
+
+.primary-cta:hover {
+    background: transparent;
+    border-color: var(--color-text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Botón Secundario: Ver Más */
+.secondary-cta {
+    background: transparent;
+    color: var(--color-text-light);
+    border: 2px solid var(--color-text-light);
+}
+
+.secondary-cta:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(226, 125, 96, 0.4);
+}
+
+
+/* ------------------------------------- */
+/* 6. Animaciones */
+/* ------------------------------------- */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------- */
+/* 7. Responsive Móvil (Corrección para evitar desbordamiento) */
+/* ------------------------------------- */
+
+@media (max-width: 768px) {
+    .hero__container {
+        height: 65vh; 
+    }
+
+    .hero__content {
+        /* Reducimos el padding en móvil para maximizar el espacio para el texto */
+        padding: 0 15px; 
+    }
+
+    .hero__title {
+        /* Tamaño de fuente fijo y más pequeño para garantizar que quepa */
+        font-size: 1.8rem; 
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero__subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero__cta {
+        /* Los botones se apilan verticalmente */
+        flex-direction: column;
+        gap: 15px;
+        align-items: center; /* Centra los botones en la columna */
+    }
+
+    .hero__cta-button {
+        width: 100%; 
+        max-width: 300px; /* Evita que los botones sean demasiado anchos en tabletas */
+        margin: 0; 
+        font-size: 0.9rem; /* Un poco más pequeño para mejorar la táctil */
+    }
+}

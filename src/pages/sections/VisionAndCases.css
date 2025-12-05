@@ -1,0 +1,191 @@
+/* src/pages/sections/VisionAndCases.css */
+
+/* --- Estructura Principal con Grid --- */
+.visioncases__container {
+    display: grid;
+    /* 33% para la imagen, 67% para el contenido */
+    grid-template-columns: 1fr 2fr; 
+    max-width: 1400px; 
+    margin: 80px auto;
+    gap: 40px;
+    padding: 0 40px;
+}
+
+/* --- Animación: Contenido Principal (Imagen y Bloque de Texto) --- */
+
+/* ESTADO INICIAL: Invisible y desplazado hacia abajo */
+.visioncases__image-wrapper,
+.visioncases__content-wrapper {
+    opacity: 0;
+    transform: translateY(40px);
+    /* Transición suave y elegante */
+    transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), 
+                transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ESTADO FINAL: Visible y en su posición */
+.visioncases__image-wrapper.is-visible,
+.visioncases__content-wrapper.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Estilos de la Imagen (1/3) --- */
+/* Nuevo estilo para la sección de Casos de Éxito */
+.casestudies__container {
+    max-width: 1200px;
+    margin: 4rem auto; /* Espaciado superior e inferior para separarla */
+    padding: 0 20px;
+    text-align: center;
+}
+
+.casestudies__header {
+    margin-bottom: 3rem;
+}
+
+.casestudies__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--terracotta-pink); /* Usando la variable de acento */
+    margin-bottom: 0.5rem;
+}
+
+.casestudies__subtitle {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* El grid de tarjetas de casos de éxito (visioncases__cards-grid) 
+   y las tarjetas individuales (visioncases__card) 
+   mantendrán los estilos que ya tienes definidos. */
+.visioncases__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos del Contenido (2/3) --- */
+
+.visioncases__content-wrapper {
+    text-align: left;
+}
+
+.visioncases__title {
+    font-size: 2.5rem;
+    color: var(--primary-color); 
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.visioncases__paragraph {
+    font-size: 1rem;
+    color: var(--text-color); 
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.visioncases__subtitle {
+    font-size: 1.7rem;
+    color: var(--secondary-color); 
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+
+/* ======================================================
+   ANIMACIÓN DE CARDS DE CASOS DE ÉXITO (Scroll-Triggered)
+   ====================================================== */
+
+.visioncases__cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* 🎯 Wrapper de las tarjetas (Para la animación escalonada) */
+.case-card-wrapper {
+    /* Estado Inicial: Invisible y desplazado hacia abajo */
+    opacity: 0;
+    transform: translateY(20px);
+    /* Transición suave para la animación de las tarjetas */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* 🎯 Estado Visible */
+.case-card-wrapper.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Estilos de la Card --- */
+
+.visioncases__card {
+    background: var(--bg-card); 
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--secondary-color);
+}
+
+.visioncases__card-icon {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.visioncases__card-title {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin: 0 0 5px 0;
+}
+
+.visioncases__card-subtitle {
+    font-size: 0.9rem;
+    color: var(--grey-motor);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.visioncases__card-description {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.visioncases__card-link {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.visioncases__card-link:hover {
+    color: var(--secondary-color);
+}
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .visioncases__container {
+        grid-template-columns: 1fr; /* Columna única en tablet/móvil */
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .visioncases__image-wrapper {
+        order: 2; /* Mueve la imagen debajo del texto en móvil */
+    }
+
+    .visioncases__content-wrapper {
+        order: 1;
+    }
+}

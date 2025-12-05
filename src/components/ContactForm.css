@@ -1,0 +1,98 @@
+/* src/components/ContactForm.css */
+
+.contactform__wrapper {
+    background-color: rgb(238, 238, 238);
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contactform__title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.contactform__subtitle {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.contactform__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contactform__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactform__label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.contactform__input,
+.contactform__textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contactform__input:focus,
+.contactform__textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2); /* Sombra de enfoque */
+    outline: none;
+}
+
+.contactform__textarea {
+    resize: vertical; /* Permitir solo el cambio de altura */
+}
+
+.contactform__submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.contactform__submit-btn:hover:not(:disabled) {
+    background-color: var(--secondary-color);
+}
+
+.contactform__submit-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.contactform__message {
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.contactform__message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.contactform__message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

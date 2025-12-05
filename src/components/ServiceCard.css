@@ -1,0 +1,53 @@
+/* src/pages/sections/Services.css */
+
+/* --- Contenedor de la Sección --- */
+.servicessection__container {
+  padding: 10px 20px; /* Padding más compacto en los lados */
+  background-color: var(--bg-light); 
+  text-align: center;
+}
+
+/* --- Encabezado --- */
+.servicessection__header {
+    margin-bottom: 50px;
+}
+
+.servicessection__header h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.servicessection__header p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- ESTRUCTURA GRID RESPONSIVE --- */
+.servicessection__grid {
+  display: grid;
+  /* Por defecto: 1 columna, para móviles */
+  grid-template-columns: 1fr; 
+  gap: 30px; /* Espacio entre las tarjetas */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 1. DISEÑO PARA TABLETS (A partir de 768px) */
+@media (min-width: 768px) {
+  .servicessection__grid {
+    /* 2 columnas iguales con un ancho mínimo de 300px */
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+/* 2. DISEÑO PARA DESKTOPS (A partir de 1024px) */
+@media (min-width: 1024px) {
+  .servicessection__grid {
+    /* 3 columnas iguales */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; /* Más espacio en pantallas grandes */
+  }
+}

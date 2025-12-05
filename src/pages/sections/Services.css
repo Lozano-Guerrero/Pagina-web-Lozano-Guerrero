@@ -1,0 +1,147 @@
+/* ---------- Services.css (limpio y consolidado) ---------- */
+:root {
+    --color-primary: #1d0851;
+    --color-secondary: #C79F5E;
+    --color-background-light: #f9f9f9;
+    --color-text-dark: #707070;
+    --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-soft: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 1. Contenedor Principal (Servicios) */
+.services__container {
+    padding:  5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(53, 53, 53);
+}
+
+.services__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.services__subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: whitesmoke;
+    margin-bottom: 4rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2. Grid de Servicios (Ahora Flexbox para el centrado) */
+.services__grid {
+    display: flex; /* CAMBIO: Usamos flexbox */
+    flex-wrap: wrap;
+    justify-content: center; /* AHORA LAS CARDS ESTÁN CENTRADAS */
+    gap: 40px;
+    /* La propiedad grid-template-columns ha sido eliminada */
+}
+
+/* 3. Tarjeta de Servicio (Card) y Animación */
+.service-card-wrapper {
+    /* Agregamos propiedades flex para que el centrado funcione y mantenga el tamaño */
+    flex-basis: 260px; /* Tamaño base mínimo */
+    flex-grow: 1; /* Permite que crezca para llenar el espacio */
+    max-width: 100%;
+    
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.service-card-wrapper.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card {
+    position: relative;
+    background-color: white;
+    padding: 36px 24px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--color-primary);
+}
+
+.service-card__visual {
+    position: relative;
+    margin-bottom: 1.6rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(44, 62, 80, 0.06);
+    border: 2px solid rgba(226, 125, 96, 0.18);
+}
+
+.service-card__icon {
+    font-size: 2.4rem;
+    color: var(--color-primary);
+}
+
+.service-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 12px;
+}
+
+.service-card__description {
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* 4. Volumetrías (cubo) */
+.cubes-visual {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    opacity: 1;
+    z-index: 10;
+}
+
+.cube {
+    display: block;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    transform: rotate(45deg);
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+
+/* 5. Responsive tweaks */
+@media (max-width: 992px) {
+    .services__container { padding: 6.5rem 1.25rem 4.5rem; }
+}
+
+@media (max-width: 768px) {
+    .services__container { padding: 5rem 1rem 3rem; }
+    .services__title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+    .service-card { padding: 26px 18px; }
+    .services__subtitle { margin-bottom: 2.5rem; }
+}

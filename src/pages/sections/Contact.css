@@ -1,0 +1,28 @@
+/* src/pages/sections/Contact.css */
+
+.contactsection__container {
+  padding: 40px 40px;
+  align-items: center;
+ 
+  justify-content: center;
+  background-color: rgb(234, 234, 234); 
+}
+
+.contactsection__content-grid {
+  display: grid;
+  /* Por defecto: 1 columna (móvil) */
+  grid-template-columns: 1fr; 
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch; /* Asegura que ambos lados se estiren */
+}
+
+/* Diseño para Desktop (a partir de 900px) */
+@media (min-width: 900px) {
+  .contactsection__content-grid {
+    /* 1 columna para la información (40%) y 1 columna para el formulario (60%) */
+    grid-template-columns: 40% 60%; 
+    gap: 50px;
+  }
+}
