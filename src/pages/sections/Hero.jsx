@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="hero__overlay">
         <div className="hero__content">
           <h1 className="hero__title">
-            Maximiza el Valor de tu Inversión Inmobiliaria
+            Determinación y validación del mas rentable uso de suelo
           </h1>
           <p className="hero__subtitle">
             Lozano Guerrero: Asesoría legal, técnica y financiera integral para proyectos de alto rendimiento.

@@ -11,6 +11,8 @@ import Footer from '../components/Footer';
 import VisionAndCases from './sections/VisionAndCases';
 import VisionSection from './sections/VisionSection';
 import CaseStudiesSection from './sections/CaseStudiesSection';
+import UsoSueloRentableSection from './sections/UsoSueloRentableSection';
+import EstrategiaServiciosIntegrales from './sections/EstrategiaServiciosIntegrales';
 
 const Home = () => {
   return (
@@ -20,10 +22,10 @@ const Home = () => {
       <section id="hero-section">
         <Hero />
       </section>
-
-      <section id="services-section">
-        <Services />
-      </section>
+<section id="services-section" >
+      <EstrategiaServiciosIntegrales/>
+</section>
+    
      <section id="vision-section"> 
      
       <VisionSection />

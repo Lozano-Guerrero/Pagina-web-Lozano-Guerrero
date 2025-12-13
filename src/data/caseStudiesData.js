@@ -18,10 +18,10 @@ export const caseStudies = [
   },
    {
     id: 3,
-    title: "Edificio N/A",
-    subtitle: "Venta récord de inmueble superior a $65 MDP.",
+    title: "Hotel Yamallel",
+    subtitle: "Venta récord de inmueble.",
     description: "A inicios de 2025 asumimos la comercialización de una propiedad en el centro de Monterrey que llevaba más de una década sin venderse. Implementamos una estrategia basada en un análisis financiero y comercial que resaltó su valor como inversión y su potencial de negocio. Como resultado, en menos de un mes concretamos la venta de un inmueble superior a los 65 millones de pesos.",
-  imagePath: "/img/portfolio/edificio.jpg",
+  imagePath: "/hotel.webp",
   },
   {
     id: 4,

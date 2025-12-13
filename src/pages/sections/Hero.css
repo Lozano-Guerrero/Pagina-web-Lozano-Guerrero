@@ -85,7 +85,7 @@
 .hero__title {
     font-family: 'Inter', sans-serif;
     /* Título responsive que se ajusta bien en diferentes tamaños */
-    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    font-size: clamp(2rem, 5vw, 3rem); 
     font-weight: 900;
     color: var(--color-text-light);
     margin-bottom: 1rem;
