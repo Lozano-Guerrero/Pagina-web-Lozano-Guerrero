@@ -13,7 +13,7 @@ const ContactInfo = () => {
     
     // URL de WhatsApp con mensaje predefinido (codificado)
     const whatsappMessage = "me gustaría una asesoria, vi su información en la pagina web";
-    const whatsappLink1 = `https://wa.me/528132520400?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappLink1 = `https://wa.me/528110184872?text=${encodeURIComponent(whatsappMessage)}`;
     const whatsappLink2 = `https://wa.me/528112777073?text=${encodeURIComponent(whatsappMessage)}`;
 
     // URL de Google Maps para la nueva dirección
@@ -38,26 +38,21 @@ const ContactInfo = () => {
         <li>
           <FontAwesomeIcon icon={faPhone} className="contactinfo__icon" />
           <a href={whatsappLink1} target="_blank" rel="noopener noreferrer" className="contactinfo__link">
-            WhatsApp: +52 1 81 3252 0400
+            +52 1 81 1018 4872
           </a>
         </li>
-        <li>
-          <FontAwesomeIcon icon={faPhone} className="contactinfo__icon" />
-          <a href={whatsappLink2} target="_blank" rel="noopener noreferrer" className="contactinfo__link">
-            WhatsApp: +52 1 81 1277 7073
-          </a>
-        </li>
+     
         {/* -- CORREOS ELECTRÓNICOS -- */}
         <li>
           <FontAwesomeIcon icon={faEnvelope} className="contactinfo__icon" />
           <a href="mailto:tlozano@lozanoguerrero.com" className="contactinfo__link">
-            Correo 1: tlozano@lozanoguerrero.com
+            tlozano@lozanoguerrero.com
           </a>
         </li>
         <li>
           <FontAwesomeIcon icon={faEnvelope} className="contactinfo__icon" />
           <a href="mailto:clozano@lozanoguerrero.com" className="contactinfo__link">
-            Correo 2: clozano@lozanoguerrero.com
+           clozano@lozanoguerrero.com
           </a>
         </li>
       </ul>

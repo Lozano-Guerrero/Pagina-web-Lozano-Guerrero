@@ -20,14 +20,14 @@ export const caseStudies = [
     id: 3,
     title: "Hotel Yamallel",
     subtitle: "Venta récord de inmueble.",
-    description: "A inicios de 2025 asumimos la comercialización de una propiedad en el centro de Monterrey que llevaba más de una década sin venderse. Implementamos una estrategia basada en un análisis financiero y comercial que resaltó su valor como inversión y su potencial de negocio. Como resultado, en menos de un mes concretamos la venta de un inmueble superior a los 65 millones de pesos.",
-  imagePath: "/hotel.webp",
+    description: "A inicios de 2025 asumimos la comercialización de una propiedad en el centro de Monterrey que llevaba más de una década sin venderse. Implementamos una estrategia basada en un análisis financiero y comercial que resaltó su valor como inversión y su potencial de negocio. Como resultado, en menos de un mes concretamos la venta del inmueble.",
+  imagePath: "/hotel.png",
   },
   {
     id: 4,
     title: "Granados del Mediterráneo",
     subtitle: "Próximo caso de éxito en Montemorelos, N.L.",
     description: "Este proyecto está actualmente en desarrollo bajo nuestra consultoría integral, aplicando nuestra metodología de arquitectura financiera y validación de uso de suelo para garantizar su posicionamiento y rentabilidad futura.",
-    imagePath: "/img/portfolio/granados.webp",
+    imagePath: "/FACHADA2.jpg",
   },
 ];

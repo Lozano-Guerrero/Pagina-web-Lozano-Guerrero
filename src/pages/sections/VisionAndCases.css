@@ -5,7 +5,7 @@
     display: grid;
     /* 33% para la imagen, 67% para el contenido */
     grid-template-columns: 1fr 2fr; 
-    max-width: 1400px; 
+
     margin: 80px auto;
     gap: 40px;
     padding: 0 40px;

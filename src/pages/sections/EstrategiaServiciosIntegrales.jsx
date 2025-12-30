@@ -172,7 +172,7 @@ const EstrategiaServiciosIntegrales = () => {
     // Placeholder para Imagen de Mapa (Asumo que la ruta es correcta)
     const VolumetriaImage = () => (
         <div className="image-placeholder map-image-wrapper">
-            <img src="/volumetria.jpg" alt="Mapa de Volumetría Avanzada" /> 
+            <img src="/parametro.jpg" alt="Mapa de Volumetría Avanzada" /> 
             <p className="caption">Visualización técnica y mapeo volumétrico.</p>
         </div>
     );

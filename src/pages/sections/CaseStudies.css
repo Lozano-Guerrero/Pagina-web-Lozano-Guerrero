@@ -1,92 +1,88 @@
-/* src/components/sections/NewCaseStudies.css */
+/* src/components/sections/CaseStudies.css */
 
-/* Variables (asumimos que las variables generales están definidas en un archivo base) */
 :root {
-    
     --text-color: #333333;
-    --text-light: #6c757d;
-    --bg-light: #e3e3e3;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --text-light: #f3eee4;
+    --accent-color: #f5deb3; /* wheat */
+    --bg-dark: #07062e;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --transition-speed: 0.8s;
 }
 
 /* ======================================================
-   1. ESTRUCTURA DE LA SECCIÓN (Header y Contenedor)
+   1. ESTRUCTURA DE LA SECCIÓN
    ====================================================== */
 
 .newcases__section-container {
-    padding: 80px 0;
-    background-color:rgb(7, 6, 46);
+    padding: 100px 20px;
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Evita scrolls accidentales */
 }
 
 .newcases__header {
     text-align: center;
     max-width: 800px;
-    color: wheat;
-    margin: 0 auto 40px auto;
-    padding: 0 20px;
+    margin-bottom: 60px;
 }
 
 .newcases__title {
-     color: wheat;
-    font-size: 2.2rem;
-   
-    margin-bottom: 10px;
+    color: var(--accent-color);
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .newcases__subtitle {
-    font-size: 1.1rem;
-   color: rgb(243, 238, 228);
-   
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
 /* ======================================================
-   2. SCROLL HORIZONTAL (Ajuste al 90% del ancho)
+   2. CONTENEDOR DE TARJETAS (Fila de 4 en Desktop)
    ====================================================== */
 
-.newcases__cards-scroll-wrapper {
-    /* Nueva estructura para limitar el ancho del contenedor de scroll */
-    max-width: 90%; 
-    margin: 0 auto; /* Centra el contenedor de scroll */
-    
-    overflow-x: auto; 
-    overflow-y: hidden;
-    padding-bottom: 20px; /* Padding inferior para el área de desplazamiento */
-    /* Padding lateral 0 porque ya está centrado y limitado por max-width: 90% */
-    padding-left: 0;
-    padding-right: 0;
-    
-    -webkit-overflow-scrolling: touch; 
-    /* Opcional: Estilo de la barra de desplazamiento (para navegadores Webkit) */
-    scrollbar-width: thin;
-    scrollbar-color: var(--secondary-color) var(--bg-light); 
+.newcases__main-wrapper {
+    width: 100%;
+    max-width: 1400px; /* Ancho amplio para que quepan las 4 */
+    margin: 0 auto;
 }
 
-/* Fila de tarjetas: Fuerza la visualización en una sola línea */
-.newcases__cards-row {
+.newcases__cards-grid {
     display: flex;
+    /* En desktop forzamos una sola hilera */
     flex-wrap: nowrap; 
-    gap: 25px; /* Reducción de espacio entre tarjetas */
-    width: max-content; 
-    margin: 0;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
 }
 
 /* ======================================================
-   3. ESTILO DE LA TARJETA (Reducción de tamaño)
+   3. ESTILO DE LA TARJETA
    ====================================================== */
 
 .newcases__card {
-    /* TAMAÑO REDUCIDO */
-    min-width: 300px; 
-    max-width: 300px; 
-    
+    /* Base para 4 columnas: (100% / 4) - gap */
+    flex: 0 1 calc(25% - 15px);
+    min-width: 260px; /* Seguridad para que no se compriman demasiado */
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    overflow: hidden; 
-    transition: transform 0.3s, box-shadow 0.3s;
-    /* Animación inicial (oculto) */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    
+    /* Animación de entrada síncrona */
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
+    transition: 
+        opacity var(--transition-speed) ease-out, 
+        transform var(--transition-speed) ease-out,
+        box-shadow 0.3s ease;
 }
 
 .newcases__card.is-visible {
@@ -95,90 +91,132 @@
 }
 
 .newcases__card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* --- Imagen de la Tarjeta --- */
+/* --- Imagen alineada --- */
 .newcases__card-image-wrapper {
-    height: 160px; /* Ligeramente más pequeña la imagen */
+    width: 100%;
+    height: 200px; /* Altura fija para que todas las cards midan igual */
     overflow: hidden;
 }
 
 .newcases__card-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-/* --- Contenido de la Tarjeta --- */
+.newcases__card:hover .newcases__card-image {
+    transform: scale(1.1);
+}
+
+/* --- Contenido Interno --- */
 .newcases__card-content {
-    padding: 15px; /* Reducción de padding interno */
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.newcases__card-header-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
 .newcases__card-icon {
-    color: var(--secondary-color);
-    font-size: 1.6rem;
-    margin-bottom: 8px;
+    color: #2ecc71;
+    font-size: 1.3rem;
 }
 
 .newcases__card-title {
-    font-size: 1.2rem; /* Ligeramente más pequeño */
-    margin: 5px 0 6px 0;
+    font-size: 1.15rem;
+    color: var(--bg-dark);
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .newcases__card-subtitle {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
 }
 
 .newcases__card-description {
     font-size: 0.9rem;
-    margin-bottom: 12px;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 .newcases__card-link {
-    display: inline-block;
-    color: var(--primary-color);
+    margin-top: auto;
     text-decoration: none;
-    font-weight: 500;
+    color: var(--bg-dark);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    transition: color 0.2s;
+}
+
+.newcases__card-link:hover {
+    color: #3498db;
 }
 
 /* ======================================================
-   4. RESPONSIVE Y ADAPTACIÓN A TODOS LOS DISPOSITIVOS
+   4. RESPONSIVE (Adaptación de la hilera)
    ====================================================== */
 
-@media (max-width: 768px) {
-    .newcases__section-container {
-        padding: 50px 0;
+/* Tablets Grandes: Pasamos de 4 a 2 columnas */
+@media (max-width: 1200px) {
+    .newcases__cards-grid {
+        flex-wrap: wrap; 
+        justify-content: center;
     }
-    
-    .newcases__cards-scroll-wrapper {
-        /* En tablet, usamos el 95% para maximizar el espacio de scroll */
-        max-width: 95%; 
-        /* En dispositivos más pequeños, volvemos a poner un poco de padding para que los dedos puedan empezar a hacer scroll desde el borde */
-        padding: 0 10px 20px 10px; 
+
+    .newcases__card {
+        flex: 0 1 calc(50% - 20px);
+        max-width: 400px;
     }
 }
 
-@media (max-width: 600px) {
-    .newcases__header {
-        padding: 0 15px;
+/* Tablets Pequeñas y Móviles: 1 sola columna vertical */
+@media (max-width: 768px) {
+    .newcases__section-container {
+        padding: 60px 15px;
     }
 
     .newcases__title {
         font-size: 2rem;
     }
-    
-    .newcases__cards-scroll-wrapper {
-        max-width: 100%; /* Ocupa todo el ancho en móviles pequeños */
-        padding: 0 10px 20px 10px; 
+
+    .newcases__cards-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 
     .newcases__card {
-        /* TAMAÑO MÓVIL PEQUEÑO */
-        min-width: 260px; 
-        max-width: 260px;
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 450px; /* Para que no se vea gigante en tablets verticales */
+        opacity: 1; /* Opcional: Forzar visibilidad en móvil si hay problemas de scroll */
+        transform: none;
+    }
+    
+    .newcases__card:hover {
+        transform: none; /* Quitamos el hover en móvil para mejor UX */
     }
 }
